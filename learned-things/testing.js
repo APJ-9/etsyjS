@@ -13,7 +13,7 @@ headerTop.style.padding = '6px 0 0 2px'
 const headerBottom = document.createElement('div')
 headerBottom.style.display = 'flex'
 headerBottom.style.alignItems = 'center'
-headerBottom.style.padding = '3px 4px 0'
+headerBottom.style.padding = '3px 0'
 // headerBottom.style.paddingBottom = '12px'
 // headerBottom.style.backgroundColor='yellow'
 
@@ -90,7 +90,14 @@ navBtn.innerHTML = `
   <path d="M20 7H4c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1zm-4.8 6H4c-.6 0-1-.4-1-1s.4-1 1-1h11.2c.6 0 1 .4 1 1s-.4 1-1 1zm4.8 6H4c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1z"></path>
 </svg>
 `
-navBtn.style.marginTop = '1px'
+navBtn.style.marginTop = '2px'
+// navBtn.style.marginRight='1px'
+// navBtn.style.background='yellow'
+navBtn.style.padding='5px'
+navBtn.style.borderRadius='50px'
+navBtn.addEventListener('mouseover',showBtnStyle)
+navBtn.addEventListener('mouseout',removeBtnStyle)
+
 const searchBarDiv = document.createElement('div')
 searchBarDiv.style.display = 'flex'
 searchBarDiv.style.alignItems = 'center'
@@ -99,10 +106,11 @@ searchBarDiv.style.width = '100%'
 searchBarDiv.style.backgroundColor = '#f4f4f4'
 searchBarDiv.style.border = '2px solid black'
 searchBarDiv.style.borderRadius = '50px'
+// searchBarDiv.style.
 // searchBarDiv.style.padding = '6px 0px 6px 12px'
 // searchBarDiv.style.paddingBottom = '6px'
 // searchBarDiv.style.backgroundColor='red'
-searchBarDiv.style.marginLeft = '12px'
+searchBarDiv.style.marginLeft = '6px'
 
 const searchBar = document.createElement('input')
 searchBar.setAttribute("type", "text")
@@ -110,9 +118,21 @@ searchBar.setAttribute("placeholder", "Search for anything")
 
 searchBar.style.border = 'none'
 searchBar.style.width = '100%'
-// searchBar.style.margin = '0 0 0 4px'
+searchBar.style.margin = '0 0 0 12px'
 searchBar.style.fontSize = '16px'
 searchBar.style.backgroundColor = '#F4F4F4'
+
+
+// FUNCTION FOR SEARCH BAR WHITE COLOR
+searchBarDiv.addEventListener('focusin',()=>{
+  searchBarDiv.style.backgroundColor='white'
+  searchBar.style.backgroundColor='white'
+})
+
+searchBarDiv.addEventListener('focusout',()=>{
+  searchBarDiv.style.backgroundColor='#f4f4f4'
+  searchBar.style.backgroundColor='#f4f4f4'
+})
 
 
 const searchIcon = document.createElement('div')
@@ -120,12 +140,19 @@ searchIcon.innerHTML = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24"><path d="M10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18ZM10,4a6,6,0,1,0,6,6A6.007,6.007,0,0,0,10,4Z"></path><path d="M21,22a1,1,0,0,1-.707-0.293l-4-4a1,1,0,0,1,1.414-1.414l4,4A1,1,0,0,1,21,22Z"></path></svg>
 `
 
-searchIcon.style.paddingTop = '10px'
-searchIcon.style.paddingRight = '22px'
-searchIcon.style.paddingLeft = '10px'
-searchIcon.style.height = '100%'
+searchIcon.style.padding = '10px 22px 5px 10px'
+// searchIcon.style.paddingRight = '22px'
+// searchIcon.style.paddingLeft = '10px'
+// searchIcon.style.paddingBottom = '5px'
+// searchIcon.style.backgroundColor = 'yellow'
+searchIcon.style.borderTopRightRadius = '20px'
+searchIcon.style.borderBottomRightRadius = '20px'
+searchIcon.style.cursor='pointer'
 
-searchIcon.style.backgroundColor = 'yellow'
+searchIcon.addEventListener('mouseover', ()=>{
+  searchIcon.style.backgroundColor='#ddd'
+})
+searchIcon.addEventListener('mouseout', removeBtnStyle)
 
 
 addElement(rightSideLogo, signIn)
@@ -142,7 +169,7 @@ addElement(headerSection, headerTop)
 addElement(headerSection, headerBottom)
 
 
-function showBtnStyle() {
+function showBtnStyle(color) {
   // console.log('  mouseIN')
   this.style.backgroundColor = '#eee'
   // this.style.padding = '5px 10px'
@@ -192,9 +219,14 @@ const element = document.createElement('div')
 element.classList.add('element')
 addElement(discoverElementContainer, element)
 
+//Calling the six elements from JSON Array
 let discoverElementCounter = 0
 const elementToWrite = discoverJSONData.map(discoverElements).join('')
 element.innerHTML = elementToWrite
+
+
+
+
 function discoverElements(elementDetails) {
   if (discoverElementCounter < 6) {
     discoverElementCounter++
@@ -205,8 +237,6 @@ function discoverElements(elementDetails) {
   `
   }
 }
-
-
 
 function addElement(section, element) {
   section.append(element)
