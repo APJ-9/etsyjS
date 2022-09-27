@@ -14,6 +14,7 @@ const headerBottom = document.createElement('div')
 headerBottom.style.display = 'flex'
 headerBottom.style.alignItems = 'center'
 headerBottom.style.padding = '5px 4px'
+// headerBottom.style.paddingBottom = '12px'
 // headerBottom.style.backgroundColor='yellow'
 
 const etsyLogo = document.createElement('div')
@@ -37,10 +38,10 @@ rightSideLogo.style.alignItems = 'center'
 const signIn = document.createElement('a')
 const textLink = document.createElement('span')
 textLink.innerHTML = `Sign in`
-textLink.style.fontSize = '12px'
+textLink.style.fontSize = '13px'
 addElement(signIn, textLink)
 signIn.href = 'https://www.etsy.com/in-en/about?ref=ftr'
-signIn.style.marginRight = '50px'
+signIn.style.marginRight = '45px'
 signIn.style.marginBottom = '4px'
 signIn.style.color = '#000'
 signIn.style.fontWeight = 'bold'
@@ -64,7 +65,7 @@ navBtn.innerHTML = `
   <path d="M20 7H4c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1zm-4.8 6H4c-.6 0-1-.4-1-1s.4-1 1-1h11.2c.6 0 1 .4 1 1s-.4 1-1 1zm4.8 6H4c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1z"></path>
 </svg>
 `
-// navBtn.style.marginTop='1px'
+navBtn.style.marginTop='1px'
 const searchBarDiv = document.createElement('div')
 searchBarDiv.style.display = 'flex'
 searchBarDiv.style.alignItems = 'center'
@@ -73,7 +74,8 @@ searchBarDiv.style.width = '100%'
 searchBarDiv.style.backgroundColor = '#f4f4f4'
 searchBarDiv.style.border = '2px solid black'
 searchBarDiv.style.borderRadius = '50px'
-searchBarDiv.style.padding = '8px 10px'
+searchBarDiv.style.padding = '6px 0px 6px 12px'
+// searchBarDiv.style.paddingBottom = '6px'
 // searchBarDiv.style.backgroundColor='red'
 searchBarDiv.style.marginLeft = '12px'
 
@@ -83,15 +85,17 @@ searchBar.setAttribute("placeholder", "Search for anything")
 
 searchBar.style.border = 'none'
 searchBar.style.width = '100%'
-searchBar.style.margin = '0 4px 0 4px'
+// searchBar.style.margin = '0 0 0 4px'
 searchBar.style.fontSize = '16px'
 searchBar.style.backgroundColor = '#F4F4F4'
+
+
 const searchIcon = document.createElement('div')
 searchIcon.innerHTML = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24"><path d="M10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18ZM10,4a6,6,0,1,0,6,6A6.007,6.007,0,0,0,10,4Z"></path><path d="M21,22a1,1,0,0,1-.707-0.293l-4-4a1,1,0,0,1,1.414-1.414l4,4A1,1,0,0,1,21,22Z"></path></svg>
 `
-searchIcon.style.marginRight = '12px'
-searchIcon.style.marginTop = '2px'
+searchIcon.style.marginRight = '22px'
+searchIcon.style.marginTop = '4px'
 
 
 addElement(rightSideLogo, signIn)
@@ -114,40 +118,49 @@ addElement(headerSection, headerBottom)
 // Div discover
 
 const discoverJSONData = [
-  
-  { name: 'Diwali',source:'https://i.etsystatic.com/16676438/c/1954/1954/0/0/il/2054a3/1825350041/il_300x300.1825350041_rvfe.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
-  { name: 'Home & Living',source:'https://i.etsystatic.com/24440180/r/il/cc8bc7/3094624694/il_300x300.3094624694_64up.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
-  { name: 'Clothing',source:'https://i.etsystatic.com/25473399/r/il/6cfb1f/4088005474/il_300x300.4088005474_foea.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
-  { name: 'Jewellery',source:'https://i.etsystatic.com/18077312/r/il/b10e09/2350226444/il_300x300.2350226444_odar.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
-  { name: 'Wall Art',source:'https://i.etsystatic.com/30213933/c/1510/1510/342/…/ea97e0/3755997843/il_300x300.3755997843_9z68.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
-  { name: 'On Sale',source:'https://i.etsystatic.com/27502657/r/il/34ea55/2915113681/il_300x300.2915113681_jqpd.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
-  
-  
+
+  { name: 'Diwali', source: 'https://i.etsystatic.com/16676438/c/1954/1954/0/0/il/2054a3/1825350041/il_300x300.1825350041_rvfe.jpg', link: 'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'Home & Living', source: 'https://i.etsystatic.com/24440180/r/il/cc8bc7/3094624694/il_300x300.3094624694_64up.jpg', link: 'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'Clothing', source: 'https://i.etsystatic.com/25473399/r/il/6cfb1f/4088005474/il_300x300.4088005474_foea.jpg', link: 'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'Jewellery', source: 'https://i.etsystatic.com/18077312/r/il/b10e09/2350226444/il_300x300.2350226444_odar.jpg', link: 'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'Wall Art', source: 'https://i.etsystatic.com/30213933/c/1510/1510/342/…/ea97e0/3755997843/il_300x300.3755997843_9z68.jpg', link: 'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'On Sale', source: 'https://i.etsystatic.com/27502657/r/il/34ea55/2915113681/il_300x300.2915113681_jqpd.jpg', link: 'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'Home & Living', source: 'https://i.etsystatic.com/24440180/r/il/cc8bc7/3094624694/il_300x300.3094624694_64up.jpg', link: 'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'On Sale', source: 'https://i.etsystatic.com/27502657/r/il/34ea55/2915113681/il_300x300.2915113681_jqpd.jpg', link: 'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
 
 ]
+
 
 const discoverContainer = document.getElementById('discover')
 const discoverHeading = document.createElement('p')
 discoverHeading.classList.add('heading')
 discoverHeading.innerText = "Discover one-of-a-kind item from independent creators"
-addElement(discoverContainer,discoverHeading)
+addElement(discoverContainer, discoverHeading)
+
+const discoverBackground = document.createElement('div')
+discoverBackground.classList.add('discover-background')
+addElement(discoverContainer,discoverBackground)
 
 const discoverElementContainer = document.createElement('div')
 discoverElementContainer.classList.add('elements')
-addElement(discoverContainer,discoverElementContainer)
+addElement(discoverContainer, discoverElementContainer)
 
 const element = document.createElement('div')
 element.classList.add('element')
-addElement(discoverElementContainer,element)
+addElement(discoverElementContainer, element)
 
+let discoverElementCounter = 0
 const elementToWrite = discoverJSONData.map(discoverElements).join('')
-element.innerHTML=elementToWrite
-function discoverElements(elementDetails){
-  return `
+element.innerHTML = elementToWrite
+function discoverElements(elementDetails) {
+  if (discoverElementCounter < 6) {
+    discoverElementCounter++
+    return `
   <a href="${elementDetails.link}">
   <img src="${elementDetails.source}" alt="">
   <h4 class="img-title"> ${elementDetails.name}</h4></a>
   `
+  }
 }
 
 

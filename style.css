@@ -11,40 +11,58 @@ a {
 }
 
 .discover {
-    background-color: #D7E6F5;
+    /* background-color: red; */
+    margin-top: 2px;
     /* min-height: 500px; */
-    /* width: 100%; */
+    width: 100%;
+    position: relative;
+    border-top: 1px solid #ddd;
+}
+
+.discover .discover-background {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 78%;
+    background-color: #D7E6F5;
+    z-index: -1;
 }
 
 .discover .heading {
     text-align: center;
-    font-size: 18px;
+    font-size: 19px;
     letter-spacing: 1px;
     padding-top: 20px;
     line-height: 33px;
+    margin: 0 5px;
 }
+
 .discover .element {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    justify-content:center;
-    justify-items:center;
+    justify-content: center;
+    justify-items: center;
     row-gap: 20px;
     column-gap: 16px;
     padding: 16px 14px;
+    /* background-color: red; */
 }
 
-.discover .elements .element .img-title{
+.discover .elements .element .img-title {
     /* background-color: red; */
     text-align: center;
-    font-size:13px;
+    font-size: 13px;
     color: #222222;
     line-height: 20px;
 }
 
 .discover .elements .element img {
     border-radius: 50%;
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 26vw;
+    height: 26vw;
+    max-width: 96px;
+    max-height: 96px;
     object-fit: cover;
 }
