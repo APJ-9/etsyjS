@@ -8,12 +8,12 @@ const headerTop = document.createElement('div')
 headerTop.classList.add('headertop')
 headerTop.style.display = 'flex'
 headerTop.style.justifyContent = 'space-between'
-headerTop.style.padding = '8px 0 0 2px'
+headerTop.style.padding = '6px 0 0 2px'
 
 const headerBottom = document.createElement('div')
 headerBottom.style.display = 'flex'
 headerBottom.style.alignItems = 'center'
-headerBottom.style.padding = '5px 4px'
+headerBottom.style.padding = '3px 4px 0'
 // headerBottom.style.paddingBottom = '12px'
 // headerBottom.style.backgroundColor='yellow'
 
@@ -27,6 +27,7 @@ etsyLogo.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 24
 //The Color is given inside the SVG file
 //Logo Styling
 etsyLogo.style.width = '60px'
+etsyLogo.style.cursor = 'pointer'
 
 //Right-side of the logo
 const rightSideLogo = document.createElement('div')
@@ -41,7 +42,9 @@ textLink.innerHTML = `Sign in`
 textLink.style.fontSize = '13px'
 addElement(signIn, textLink)
 signIn.href = 'https://www.etsy.com/in-en/about?ref=ftr'
-signIn.style.marginRight = '45px'
+
+signIn.style.marginRight = '20px'
+
 signIn.style.marginBottom = '4px'
 signIn.style.color = '#000'
 signIn.style.fontWeight = 'bold'
@@ -49,14 +52,36 @@ signIn.style.fontWeight = 'bold'
 const headerHeart = document.createElement('a')
 headerHeart.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="#000" width="24"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>`
 headerHeart.href = 'https://www.etsy.com/in-en/guest/favorites?ref=hdr-fav'
-headerHeart.style.marginRight = '22px'
+
+headerHeart.style.marginRight = '2px'
 
 const basket = document.createElement('a')
 basket.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="#000" width="24">
 <path d="M21 10a1 1 0 00-1-1h-3c.059-.682.287-4.44-1.611-6.555A4.363 4.363 0 0012 1a4.363 4.363 0 00-3.394 1.445C6.709 4.56 6.937 8.318 7 9H4a1 1 0 00-1 1c0 .752.008 7.413 1.12 9.478 1.416 2.622 5.92 3.474 7.88 3.474 2.12 0 6.61-1.024 7.888-3.492C20.992 17.326 21 10.74 21 10zm-5.307 7l.283-1.283.159-.717h2.651a25.487 25.487 0 01-.251 2h-2.842zM5.457 17c-.1-.586-.183-1.27-.248-2h2.656l.159.717L8.307 17h-2.85zm4.519-1.717L9.914 15h4.173l-.063.283c-.13.585-.258 1.162-.378 1.717h-3.292c-.119-.554-.247-1.13-.377-1.717h-.001zM9.479 13a39.761 39.761 0 01-.376-2H14.9c-.087.564-.22 1.256-.376 2H9.479zm9.446 0h-2.362c.152-.748.278-1.43.354-2h2.075a61.73 61.73 0 01-.067 2zM10.1 3.78A2.412 2.412 0 0112 3a2.412 2.412 0 011.9.78c1.205 1.338 1.2 4.145 1.1 5.113a.928.928 0 00.01.106H8.984a.923.923 0 00.01-.106c-.101-.968-.102-3.775 1.106-5.114zM7.083 11c.076.57.2 1.252.354 2H5.073a61.441 61.441 0 01-.066-2h2.076zm-.844 8h2.483c.108.562.191 1.061.237 1.457A6.514 6.514 0 016.239 19zm4.756 1.885A13.506 13.506 0 0010.756 19h2.489c-.123.62-.203 1.25-.239 1.881-.334.044-.67.068-1.006.071a8.66 8.66 0 01-1.005-.067zm4.049-.445c.046-.394.129-.886.235-1.44h2.489a6.655 6.655 0 01-2.724 1.44z"></path>
 </svg>`
 basket.href = 'https://www.etsy.com/in-en/cart?ref=hdr-cart'
-basket.style.marginRight = '16px'
+
+basket.style.marginRight = '5px'
+
+
+signIn.style.padding = '8px 15px'
+headerHeart.style.padding = '5px 10px'
+basket.style.padding = '5px 10px'
+
+signIn.style.borderRadius = '50px'
+headerHeart.style.borderRadius = '50px'
+basket.style.borderRadius = '50px'
+
+//Giving the hower effect to the buttons
+signIn.addEventListener('mouseover', showBtnStyle)
+signIn.addEventListener('mouseout', removeBtnStyle)
+
+headerHeart.addEventListener('mouseover', showBtnStyle)
+headerHeart.addEventListener('mouseout', removeBtnStyle)
+
+basket.addEventListener('mouseover', showBtnStyle)
+basket.addEventListener('mouseout', removeBtnStyle)
+
 
 //Header Bottom 
 const navBtn = document.createElement('a')
@@ -65,7 +90,7 @@ navBtn.innerHTML = `
   <path d="M20 7H4c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1zm-4.8 6H4c-.6 0-1-.4-1-1s.4-1 1-1h11.2c.6 0 1 .4 1 1s-.4 1-1 1zm4.8 6H4c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1z"></path>
 </svg>
 `
-navBtn.style.marginTop='1px'
+navBtn.style.marginTop = '1px'
 const searchBarDiv = document.createElement('div')
 searchBarDiv.style.display = 'flex'
 searchBarDiv.style.alignItems = 'center'
@@ -74,7 +99,7 @@ searchBarDiv.style.width = '100%'
 searchBarDiv.style.backgroundColor = '#f4f4f4'
 searchBarDiv.style.border = '2px solid black'
 searchBarDiv.style.borderRadius = '50px'
-searchBarDiv.style.padding = '6px 0px 6px 12px'
+// searchBarDiv.style.padding = '6px 0px 6px 12px'
 // searchBarDiv.style.paddingBottom = '6px'
 // searchBarDiv.style.backgroundColor='red'
 searchBarDiv.style.marginLeft = '12px'
@@ -94,8 +119,13 @@ const searchIcon = document.createElement('div')
 searchIcon.innerHTML = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24"><path d="M10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18ZM10,4a6,6,0,1,0,6,6A6.007,6.007,0,0,0,10,4Z"></path><path d="M21,22a1,1,0,0,1-.707-0.293l-4-4a1,1,0,0,1,1.414-1.414l4,4A1,1,0,0,1,21,22Z"></path></svg>
 `
-searchIcon.style.marginRight = '22px'
-searchIcon.style.marginTop = '4px'
+
+searchIcon.style.paddingTop = '10px'
+searchIcon.style.paddingRight = '22px'
+searchIcon.style.paddingLeft = '10px'
+searchIcon.style.height = '100%'
+
+searchIcon.style.backgroundColor = 'yellow'
 
 
 addElement(rightSideLogo, signIn)
@@ -110,6 +140,19 @@ addElement(headerBottom, navBtn)
 addElement(headerBottom, searchBarDiv)
 addElement(headerSection, headerTop)
 addElement(headerSection, headerBottom)
+
+
+function showBtnStyle() {
+  // console.log('  mouseIN')
+  this.style.backgroundColor = '#eee'
+  // this.style.padding = '5px 10px'
+  // this.style.borderRadius = '50px'
+}
+
+function removeBtnStyle() {
+  // console.log('mouseout')
+  this.style.backgroundColor = 'transparent'
+}
 
 
 //HEADER SECTION COMPLETED
@@ -139,7 +182,7 @@ addElement(discoverContainer, discoverHeading)
 
 const discoverBackground = document.createElement('div')
 discoverBackground.classList.add('discover-background')
-addElement(discoverContainer,discoverBackground)
+addElement(discoverContainer, discoverBackground)
 
 const discoverElementContainer = document.createElement('div')
 discoverElementContainer.classList.add('elements')
