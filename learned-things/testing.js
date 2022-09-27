@@ -1,7 +1,7 @@
 //Header Section
 const headerSection = document.querySelector('header')
 headerSection.style.display = 'block'
-headerSection.style.padding = '0px 8px 0 8px'
+headerSection.style.padding = '0px 8px 4px 8px'
 // headerSection.style.backgroundColor='red'
 // Etsy-LOGO - SECTION
 const headerTop = document.createElement('div')
@@ -109,6 +109,46 @@ addElement(headerSection, headerBottom)
 
 
 //HEADER SECTION COMPLETED
+
+//MAIN SECTION
+// Div discover
+
+const discoverJSONData = [
+  
+  { name: 'Diwali',source:'https://i.etsystatic.com/16676438/c/1954/1954/0/0/il/2054a3/1825350041/il_300x300.1825350041_rvfe.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'Home & Living',source:'https://i.etsystatic.com/24440180/r/il/cc8bc7/3094624694/il_300x300.3094624694_64up.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'Clothing',source:'https://i.etsystatic.com/25473399/r/il/6cfb1f/4088005474/il_300x300.4088005474_foea.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'Jewellery',source:'https://i.etsystatic.com/18077312/r/il/b10e09/2350226444/il_300x300.2350226444_odar.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'Wall Art',source:'https://i.etsystatic.com/30213933/c/1510/1510/342/…/ea97e0/3755997843/il_300x300.3755997843_9z68.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  { name: 'On Sale',source:'https://i.etsystatic.com/27502657/r/il/34ea55/2915113681/il_300x300.2915113681_jqpd.jpg' ,link:'https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true' },
+  
+  
+
+]
+
+const discoverContainer = document.getElementById('discover')
+const discoverHeading = document.createElement('p')
+discoverHeading.classList.add('heading')
+discoverHeading.innerText = "Discover one-of-a-kind item from independent creators"
+addElement(discoverContainer,discoverHeading)
+
+const discoverElementContainer = document.createElement('div')
+discoverElementContainer.classList.add('elements')
+addElement(discoverContainer,discoverElementContainer)
+
+const element = document.createElement('div')
+element.classList.add('element')
+addElement(discoverElementContainer,element)
+
+const elementToWrite = discoverJSONData.map(discoverElements).join('')
+element.innerHTML=elementToWrite
+function discoverElements(elementDetails){
+  return `
+  <a href="${elementDetails.link}">
+  <img src="${elementDetails.source}" alt="">
+  <h4 class="img-title"> ${elementDetails.name}</h4></a>
+  `
+}
 
 
 
