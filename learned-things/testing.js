@@ -1,4 +1,49 @@
 //Header Section
+
+//JSON DATA TO PASS:-
+
+const headerJSONData = {
+  placeholderText: "Search for anything",
+  loginText: "Log in",
+  headerSVG: [
+    {
+      name: "etsylogo",
+      source: "images/estylogo.svg",
+      link: "https://www.etsy.com/in-en/?ref=lgo",
+    },
+    {
+      name: "heart",
+      source: "images/heart.svg",
+      link: "https://www.etsy.com/in-en/guest/favorites?ref=hdr-fav",
+    },
+    {
+      name: "basket",
+      source: "images/basket.svg",
+      link: "https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true",
+    },
+    {
+      name: "nav-bar",
+      source: "images/navbtn.svg",
+      link: "https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true",
+    },
+    {
+      name: "search",
+      source: "images/search.svg",
+      link: "https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true",
+    },
+  ],
+};
+
+const etsyLogoSVG = headerJSONData.headerSVG[0].source;
+const loginData = headerJSONData.loginText;
+const heartSVG = headerJSONData.headerSVG[1].source;
+const basketSVG = headerJSONData.headerSVG[2].source;
+const navBtnSVG = headerJSONData.headerSVG[3].source;
+const searchIconSVG = headerJSONData.headerSVG[4].source;
+const placeholderText = headerJSONData.placeholderText;
+const testImageLink = "images/thumb-2.jpg";
+// console.log(loginData);
+
 const headerSection = document.querySelector("header");
 headerSection.style.display = "block";
 headerSection.style.padding = "1px 12px 4px 7px";
@@ -16,15 +61,6 @@ headerBottom.style.alignItems = "center";
 headerBottom.style.padding = "3px 0 3px 0";
 // headerBottom.style.paddingBottom = '12px'
 // headerBottom.style.backgroundColor='yellow'
-
-const etsyLogoSVG = "images/estylogo.svg";
-const heartSVG = "images/heart.svg";
-const basketSVG = "images/basket.svg";
-const testImageLink = "images/thumb-2.jpg";
-const loginData = "Sign in";
-const navBtnSVG = "images/basket.svg";
-// const imageLink = 'images/estylogo.svg'
-// const imageLink = 'images/estylogo.svg'
 
 const etsyLogo = document.createElement("div");
 etsyLogo.classList.add("etsylogo");
@@ -45,7 +81,7 @@ rightSideLogo.style.alignItems = "center";
 //Header Top Right Side Elements
 const signIn = document.createElement("a");
 const textLink = document.createElement("span");
-textLink.innerHTML = `Sign in`;
+textLink.innerHTML = `${loginData}`;
 textLink.style.fontSize = "13px";
 addElement(signIn, textLink);
 signIn.href = "https://www.etsy.com/in-en/about?ref=ftr";
@@ -58,13 +94,13 @@ signIn.style.fontWeight = "bold";
 
 const headerHeart = document.createElement("a");
 headerHeart.innerHTML = `<img src="${heartSVG}" alt="heart">`;
-headerHeart.href = "https://www.etsy.com/in-en/guest/favorites?ref=hdr-fav";
+headerHeart.href = headerJSONData.headerSVG[1].link;
 
 headerHeart.style.marginRight = "2px";
 
 const basket = document.createElement("a");
 basket.innerHTML = `<img src="${basketSVG}" alt="heart">`;
-basket.href = "https://www.etsy.com/in-en/cart?ref=hdr-cart";
+basket.href = headerJSONData.headerSVG[2].link;
 
 basket.style.marginRight = "2px";
 
@@ -89,9 +125,7 @@ basket.addEventListener("mouseout", removeBtnStyle);
 //Header Bottom
 const navBtn = document.createElement("a");
 navBtn.innerHTML = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="#000" width="24">
-  <path d="M20 7H4c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1zm-4.8 6H4c-.6 0-1-.4-1-1s.4-1 1-1h11.2c.6 0 1 .4 1 1s-.4 1-1 1zm4.8 6H4c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1z"></path>
-</svg>
+<img src="${navBtnSVG}" alt="img">
 `;
 navBtn.style.marginTop = "2px";
 // navBtn.style.marginRight='1px'
@@ -117,7 +151,7 @@ searchBarDiv.style.marginLeft = "7px";
 
 const searchBar = document.createElement("input");
 searchBar.setAttribute("type", "text");
-searchBar.setAttribute("placeholder", "Search for anything");
+searchBar.setAttribute("placeholder", placeholderText);
 
 searchBar.style.border = "none";
 searchBar.style.width = "100%";
@@ -138,9 +172,12 @@ searchBarDiv.addEventListener("focusout", () => {
 
 const searchIcon = document.createElement("div");
 searchIcon.innerHTML = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24"><path d="M10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18ZM10,4a6,6,0,1,0,6,6A6.007,6.007,0,0,0,10,4Z"></path><path d="M21,22a1,1,0,0,1-.707-0.293l-4-4a1,1,0,0,1,1.414-1.414l4,4A1,1,0,0,1,21,22Z"></path></svg>
+<img src="${searchIconSVG}" alt="search">
 `;
+// searchIcon.style.width = '24px'
+// searchIcon.style.height = '24px'
 
+searchIcon.style.overflow = "hidden";
 searchIcon.style.padding = "10px 22px 5px 10px";
 // searchIcon.style.paddingRight = '22px'
 // searchIcon.style.paddingLeft = '10px'
@@ -274,6 +311,22 @@ function discoverElements(elementDetails) {
   `;
   }
 }
+
+
+//SECTION YOUR HOME
+
+const yourHome =document.getElementById('yourhome')
+console.log(yourHome)
+
+
+
+
+
+
+
+
+
+
 
 function addElement(section, element) {
   section.append(element);
