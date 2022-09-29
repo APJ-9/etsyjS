@@ -89,9 +89,9 @@ const yourHomeJSONData = {
   subHead: "Editors' Picks",
   mainHead: "For your home",
   seemore: "See more",
-
+  uniquefield: "Shop these unique finds",
   endText:
-    "Add to Favourites Exceptional pieces by Indian creators that can help express your style in any space",
+    "Exceptional pieces by Indian creators that can help express your style in any space",
   arrow: "images/arrow.svg",
   yourHomeElements: [
     {
@@ -374,6 +374,9 @@ yourHomeHeading.innerText = yourHomeJSONData.mainHead;
 const yourHomeEls = document.createElement("div");
 yourHomeEls.classList.add("your-home-container");
 
+const elementToWriteHome =
+  yourHomeJSONData.yourHomeElements.map(yourHomeElementCheck);
+
 const seeMore = document.createElement("div");
 seeMore.classList.add("seemore");
 seeMore.innerHTML = `
@@ -382,15 +385,30 @@ seeMore.innerHTML = `
     <img src="${yourHomeJSONData.arrow}">
   </span> 
   `;
+
 const spanText = document.createElement("div");
 spanText.classList.add("last-text");
 spanText.innerHTML = `
   <p>${yourHomeJSONData.endText}</p>
   `;
 
+const homeInsideGridDiv = document.createElement("div");
+homeInsideGridDiv.classList.add("inside-grid-display");
+homeInsideGridDiv.innerHTML = `
+  ${editorsPick.outerHTML}
+  ${yourHomeHeading.outerHTML}
+  <div class="text-and-arrow">
+    <span class="text">${yourHomeJSONData.uniquefield}</span>
+    <span class="arrow">
+      <img src="${yourHomeJSONData.arrow}">
+    </span>
+  </div> 
+`;
+console.log(editorsPick);
+
 function yourHomeElementCheck(card) {
   priceAndDiscountStr = "";
-  console.log(card);
+  // console.log(card);
   if (card.discountPrice == 0 && card.price == 0) {
     priceAndDiscountStr = "";
   } else if (card.discountPrice == 0) {
@@ -438,11 +456,7 @@ function yourHomeElementCheck(card) {
 addElement(yourHome, editorsPick);
 addElement(yourHome, yourHomeHeading);
 addElement(yourHome, yourHomeEls);
-
-const elementToWriteHome =
-  yourHomeJSONData.yourHomeElements.map(yourHomeElementCheck);
-
-console.log(elementToWriteHome);
+addElement(yourHomeEls, homeInsideGridDiv);
 elementToWriteHome.forEach((el) => yourHomeEls.appendChild(el));
 addElement(yourHomeEls, spanText);
 
