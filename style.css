@@ -101,9 +101,6 @@ input:focus {
 .your-home-container .card {
   display: block;
   position: relative;
-  /* align-items: center; */
-  /* justify-content:center; */
-  /* background-color: white; */
   padding: 2px;
 }
 
@@ -130,22 +127,20 @@ input:focus {
 }
 
 .your-home-container .card .price-discount-container {
+  display: none;
   position: absolute;
   bottom: 20px;
-  left: 5px;
+  left: 10px;
+  background-color: white;
+  border-radius: 30px;
+  padding: 4px 8px;
 }
 .your-home-container .card .price-discount-container .discount {
-  background-color: white;
-  padding: 4px 12px;
-  border-radius: 30px;
   font-weight: bold;
   font-size: 13px;
 }
 
 .your-home-container .card .price-discount-container .price {
-  background-color: white;
-  padding: 4px 12px;
-  border-radius: 30px;
   text-decoration: line-through;
   font-size: 13px;
 }
@@ -157,7 +152,9 @@ input:focus {
   border-radius: 5px;
   object-fit: cover;
 }
-
+.your-home-container .last-text {
+  display: none;
+}
 .seemore {
   display: flex;
   justify-content: center;
@@ -172,4 +169,44 @@ input:focus {
   aspect-ratio: 1/1;
   margin-left: 4px;
   /* background-color: red; */
+}
+
+@media (min-width: 640px) {
+  .discover .element {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 0;
+    padding: 11px 24px;
+  }
+  .discover .discover-background {
+    height: 75%;
+  }
+  .discover .heading {
+    font-size: 27px;
+    line-height: 40px;
+  }
+  .discover .elements .element img {
+    max-width: 84px;
+    max-height: 84px;
+  }
+  .discover .elements .element .img-title {
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  .your-home-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .your-home-container .card .price-discount-container {
+    display: block;
+  }
+  .your-home h4,
+  .your-home .sub-heading,
+  .seemore {
+    display: none;
+  }
+  .your-home-container .last-text {
+    display: flex;
+  }
 }

@@ -41,7 +41,7 @@ const discoverJSONData = {
       link: "https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true",
     },
     {
-      name: "Home & Living",
+      name: "Home & Living ",
       source:
         "https://i.etsystatic.com/24440180/r/il/cc8bc7/3094624694/il_300x300.3094624694_64up.jpg",
       link: "https://www.etsy.com/in-en/search?q=diwali&mosv=sese&moci=1054306299872&mosi=1082643189240&ref=hp_bubbles_in_bau_2022&anchor_listing_id=682567193&locationQuery=1269750&is_merch_library=true",
@@ -88,7 +88,10 @@ const discoverJSONData = {
 const yourHomeJSONData = {
   subHead: "Editors' Picks",
   mainHead: "For your home",
-  endText: "See more",
+  seemore: "See more",
+
+  endText:
+    "Add to Favourites Exceptional pieces by Indian creators that can help express your style in any space",
   arrow: "images/arrow.svg",
   yourHomeElements: [
     {
@@ -166,7 +169,7 @@ headerTop.classList.add("headertop");
 
 const headerBottom = document.createElement("div");
 
-const etsyLogo = document.createElement("div");
+let etsyLogo = document.createElement("div");
 etsyLogo.classList.add("etsylogo");
 etsyLogo.innerHTML = `
     <img src="${etsyLogoSVG}" alt='image'>
@@ -371,19 +374,23 @@ yourHomeHeading.innerText = yourHomeJSONData.mainHead;
 const yourHomeEls = document.createElement("div");
 yourHomeEls.classList.add("your-home-container");
 
-const elementToWriteHome = yourHomeJSONData.yourHomeElements
-  .map(yourHomeElementCheck)
-  .join("");
-
 const seeMore = document.createElement("div");
 seeMore.classList.add("seemore");
 seeMore.innerHTML = `
-        <span> ${yourHomeJSONData.endText}</span> <span class="arrow"><img src="${yourHomeJSONData.arrow}"></span> 
-    `;
-yourHomeEls.innerHTML = elementToWriteHome;
+  <span> ${yourHomeJSONData.seemore}</span>
+  <span class="arrow">
+    <img src="${yourHomeJSONData.arrow}">
+  </span> 
+  `;
+const spanText = document.createElement("div");
+spanText.classList.add("last-text");
+spanText.innerHTML = `
+  <p>${yourHomeJSONData.endText}</p>
+  `;
 
 function yourHomeElementCheck(card) {
   priceAndDiscountStr = "";
+  console.log(card);
   if (card.discountPrice == 0 && card.price == 0) {
     priceAndDiscountStr = "";
   } else if (card.discountPrice == 0) {
@@ -402,31 +409,57 @@ function yourHomeElementCheck(card) {
   }
 
   if (card.type === "video") {
-    return `
-      <div class="card">
+    const maincard = document.createElement("div");
+    maincard.classList.add("card");
+    maincard.innerHTML = `
       <a href="${card.link}">
-      <video src="${card.source}" alt="" class="video-img"></video>
+        <video src="${card.source}" alt="" class="video-img"></video>
       </a>
-      <div class="playbtn"><div class="triangle"></div></div>
-      ${priceAndDiscountStr}
+      <div class="playbtn">
+        <div class="triangle">
+        </div>
       </div>
-      `;
+      ${priceAndDiscountStr}
+    `;
+    return maincard;
   } else if (card.type === "image") {
-    return `
-      <div class="card">
+    const maincard = document.createElement("div");
+    maincard.classList.add("card");
+    maincard.innerHTML = `
       <a href="${card.link}">
-      <img src="${card.source}" alt="" class="video-img">
+        <img src="${card.source}" alt="" class="video-img">
       </a>
       ${priceAndDiscountStr}
-      </div>
-      `;
+    `;
+    return maincard;
   }
 }
 
 addElement(yourHome, editorsPick);
 addElement(yourHome, yourHomeHeading);
 addElement(yourHome, yourHomeEls);
+
+const elementToWriteHome =
+  yourHomeJSONData.yourHomeElements.map(yourHomeElementCheck);
+
+console.log(elementToWriteHome);
+elementToWriteHome.forEach((el) => yourHomeEls.appendChild(el));
+addElement(yourHomeEls, spanText);
+
 addElement(yourHome, seeMore);
+
+function resizeListener() {
+  if (window.innerWidth < 480) {
+    addElement(yourHomeEls, spanText);
+    addElement(yourHomeEls, spanText);
+    etsyLogo.style.width = "60px";
+    // console.log("matches");
+  } else if (window.innerWidth > 480) {
+    etsyLogo.style.width = "80px";
+  }
+}
+
+window.addEventListener("resize", resizeListener);
 
 function addElement(section, element) {
   section.append(element);
