@@ -107,7 +107,48 @@ input:focus {
   padding: 2px;
 }
 
+.your-home-container .card .playbtn {
+  display: block;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: white;
+  width: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
 
+.your-home-container .card .playbtn .triangle {
+  position: absolute;
+  top: 9px;
+  left: 11px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-right: 0;
+  border-left: 12px solid #222;
+}
+
+.your-home-container .card .price-discount-container {
+  position: absolute;
+  bottom: 20px;
+  left: 5px;
+}
+.your-home-container .card .price-discount-container .discount {
+  background-color: white;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.your-home-container .card .price-discount-container .price {
+  background-color: white;
+  padding: 4px 12px;
+  border-radius: 30px;
+  text-decoration: line-through;
+  font-size: 13px;
+}
 
 .video-img {
   width: 100%;

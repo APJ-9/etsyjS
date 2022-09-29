@@ -168,7 +168,8 @@ const headerBottom = document.createElement("div");
 
 const etsyLogo = document.createElement("div");
 etsyLogo.classList.add("etsylogo");
-etsyLogo.innerHTML = `<img src="${etsyLogoSVG}" alt='image'>
+etsyLogo.innerHTML = `
+    <img src="${etsyLogoSVG}" alt='image'>
 `;
 
 const rightSideLogo = document.createElement("div");
@@ -190,7 +191,7 @@ basket.href = headerJSONData.headerSVG[2].link;
 
 const navBtn = document.createElement("a");
 navBtn.innerHTML = `
-<img src="${navBtnSVG}" alt="img">
+    <img src="${navBtnSVG}" alt="img">
 `;
 
 const searchBarDiv = document.createElement("div");
@@ -201,7 +202,7 @@ searchBar.setAttribute("placeholder", placeholderText);
 
 const searchIcon = document.createElement("div");
 searchIcon.innerHTML = `
-<img src="${searchIconSVG}" alt="search">
+    <img src="${searchIconSVG}" alt="search">
 `;
 
 addElement(headerSection, headerTop);
@@ -315,6 +316,8 @@ function removeBtnStyle() {
 
 //MAIN SECTION
 
+//MAIN SECTION : Discover
+
 const discoverContainer = document.getElementById("discover");
 
 const discoverHeading = document.createElement("p");
@@ -347,14 +350,14 @@ function discoverElements(elementDetails) {
   if (discoverElementCounter < 6) {
     discoverElementCounter++;
     return `
-    <a href="${elementDetails.link}">
-    <img src="${elementDetails.source}" alt="">
-    <h4 class="img-title"> ${elementDetails.name}</h4></a>
+        <a href="${elementDetails.link}">
+        <img src="${elementDetails.source}" alt="">
+        <h4 class="img-title"> ${elementDetails.name}</h4></a>
     `;
   }
 }
 
-//SECTION YOUR HOME
+//MAIN SECTION : For your home
 
 const yourHome = document.getElementById("yourhome");
 
@@ -375,19 +378,37 @@ const elementToWriteHome = yourHomeJSONData.yourHomeElements
 const seeMore = document.createElement("div");
 seeMore.classList.add("seemore");
 seeMore.innerHTML = `
-    <span> ${yourHomeJSONData.endText}</span> <span class="arrow"><img src="${yourHomeJSONData.arrow}"></span> 
+        <span> ${yourHomeJSONData.endText}</span> <span class="arrow"><img src="${yourHomeJSONData.arrow}"></span> 
     `;
 yourHomeEls.innerHTML = elementToWriteHome;
 
 function yourHomeElementCheck(card) {
+  priceAndDiscountStr = "";
+  if (card.discountPrice == 0 && card.price == 0) {
+    priceAndDiscountStr = "";
+  } else if (card.discountPrice == 0) {
+    priceAndDiscountStr = `
+      <div class="price-discount-container">
+        <span class="discount">&#8377; ${card.price}</span>
+      </div>
+    `;
+  } else {
+    priceAndDiscountStr = `
+      <div class="price-discount-container">
+        <span class="discount">&#8377; ${card.discountPrice}</span>
+        <span class="price">	&#8377; ${card.price}</span>
+      </div>
+    `;
+  }
+
   if (card.type === "video") {
-    console.log(card.name);
     return `
       <div class="card">
       <a href="${card.link}">
       <video src="${card.source}" alt="" class="video-img"></video>
-      <div class="playbtn"></div>
       </a>
+      <div class="playbtn"><div class="triangle"></div></div>
+      ${priceAndDiscountStr}
       </div>
       `;
   } else if (card.type === "image") {
@@ -396,6 +417,7 @@ function yourHomeElementCheck(card) {
       <a href="${card.link}">
       <img src="${card.source}" alt="" class="video-img">
       </a>
+      ${priceAndDiscountStr}
       </div>
       `;
   }
