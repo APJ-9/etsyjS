@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial,
+    sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:focus,
+input:focus {
+  outline: none;
+}
+
+.discover {
+  /* background-color: red; */
+  margin-top: 5px;
+  /* min-height: 500px; */
+  width: 100%;
+  position: relative;
+  border-top: 1px solid #ddd;
+}
+
+.discover .discover-background {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 79%;
+  background-color: #d7e6f5;
+  z-index: -1;
+}
+
+.discover .heading {
+  text-align: center;
+  font-size: 20px;
+  /* letter-spacing: 1px; */
+  padding-top: 20px;
+  line-height: 33px;
+  /* margin: 0 8px; */
+  /* background-color: darkblue; */
+}
+
+.discover .element {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  justify-items: center;
+  row-gap: 22px;
+  column-gap: 15px;
+  padding: 15px 15px;
+  /* background-color: red; */
+}
+
+.discover .elements .element .img-title {
+  /* background-color: red; */
+  margin-top: 2px;
+  text-align: center;
+  font-size: 13px;
+  color: #222222;
+  line-height: 17px;
+}
+
+.discover .elements .element img {
+  border-radius: 50%;
+  width: 26.9vw;
+  height: 27vw;
+  max-width: 96px;
+  max-height: 96px;
+  object-fit: cover;
+}
+
+.your-home {
+  display: block;
+  margin-top: 36px;
+}
+
+.your-home .sub-heading {
+  text-align: center;
+  color: #444;
+  font-size: 13px;
+}
+.your-home h4 {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 5px;
+  color: #222;
+}
+.your-home-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr;
+  /* background-color: red; */
+  justify-items: center;
+  gap: 8px;
+  padding: 16px 10px 0 10px;
+}
+.your-home-container .card {
+  display: block;
+  position: relative;
+  padding: 2px;
+}
+
+.your-home-container .card .playbtn {
+  display: block;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: white;
+  width: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.your-home-container .card .playbtn .triangle {
+  position: absolute;
+  top: 9px;
+  left: 11px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-right: 0;
+  border-left: 12px solid #222;
+}
+
+.your-home-container .card .price-discount-container {
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  background-color: white;
+  border-radius: 30px;
+  padding: 4px 8px;
+}
+.your-home-container .card .price-discount-container .discount {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.your-home-container .card .price-discount-container .price {
+  text-decoration: line-through;
+  font-size: 13px;
+}
+
+.video-img {
+  width: 100%;
+  aspect-ratio: 1/0.83;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.your-home-container .last-text {
+  display: none;
+}
+.seemore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8px;
+  font-weight: bold;
+  margin-left: 4px;
+}
+.seemore .arrow img {
+  height: 24px;
+  margin-top: 4px;
+  aspect-ratio: 1/1;
+  margin-left: 4px;
+  /* background-color: red; */
+}
+
+@media (min-width: 640px) {
+  .discover .element {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 0;
+    padding: 11px 24px;
+  }
+  .discover .discover-background {
+    height: 75%;
+  }
+  .discover .heading {
+    font-size: 27px;
+    line-height: 40px;
+  }
+  .discover .elements .element img {
+    max-width: 84px;
+    max-height: 84px;
+  }
+  .discover .elements .element .img-title {
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  .your-home-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .your-home-container .card .price-discount-container {
+    display: block;
+  }
+  .your-home h4,
+  .your-home .sub-heading,
+  .seemore {
+    display: none;
+  }
+  .your-home-container .last-text {
+    display: flex;
+  }
+}
