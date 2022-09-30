@@ -103,7 +103,25 @@ input:focus {
   position: relative;
   padding: 2px;
 }
-
+.your-home-container .card .card-heart {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 10px;
+  aspect-ratio: 1;
+  display: none;
+  opacity: 0.1;
+}
+.your-home-container .card .card-heart.active {
+  opacity: 1;
+  top: 10;
+  display: block;
+}
+.your-home-container .card .card-heart img {
+  padding: 2px 2px;
+  background-color: #fff;
+  border-radius: 50%;
+}
 .your-home-container .card .playbtn {
   display: block;
   position: absolute;
@@ -201,7 +219,7 @@ input:focus {
   }
   .your-home-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 0.9fr 1.2fr 0.9fr 1fr;
   }
   .your-home-container .card .price-discount-container {
     display: block;

@@ -271,6 +271,7 @@ signIn.style.marginRight = "6px";
 signIn.style.marginBottom = "4px";
 signIn.style.color = "#000";
 signIn.style.fontWeight = "bold";
+signIn.style.whiteSpace = "nowrap";
 
 headerHeart.style.marginRight = "2px";
 
@@ -404,7 +405,7 @@ homeInsideGridDiv.innerHTML = `
     </span>
   </div> 
 `;
-console.log(editorsPick);
+// console.log(editorsPick);
 
 function yourHomeElementCheck(card) {
   priceAndDiscountStr = "";
@@ -430,6 +431,9 @@ function yourHomeElementCheck(card) {
     const maincard = document.createElement("div");
     maincard.classList.add("card");
     maincard.innerHTML = `
+      <div class="card-heart">
+        <img src="${heartSVG}" alt="heart">
+      </div>
       <a href="${card.link}">
         <video src="${card.source}" alt="" class="video-img"></video>
       </a>
@@ -444,6 +448,9 @@ function yourHomeElementCheck(card) {
     const maincard = document.createElement("div");
     maincard.classList.add("card");
     maincard.innerHTML = `
+      <div class="card-heart">
+        <img src="${heartSVG}" alt="heart">
+      </div>
       <a href="${card.link}">
         <img src="${card.source}" alt="" class="video-img">
       </a>
@@ -459,8 +466,22 @@ addElement(yourHome, yourHomeEls);
 addElement(yourHomeEls, homeInsideGridDiv);
 elementToWriteHome.forEach((el) => yourHomeEls.appendChild(el));
 addElement(yourHomeEls, spanText);
-
 addElement(yourHome, seeMore);
+
+const cardEl = document.querySelectorAll(".card");
+// console.log(cardEl);
+
+cardEl.forEach((element) => {
+  // console.log(element.childNodes[1]);
+  const x = element.childNodes[1];
+  element.addEventListener("mouseenter", () => {
+    x.classList.add("active");
+    // console.log(x);
+  });
+  element.addEventListener("mouseleave", () => {
+    x.classList.remove("active");
+  });
+});
 
 function resizeListener() {
   if (window.innerWidth < 480) {
@@ -471,8 +492,30 @@ function resizeListener() {
   } else if (window.innerWidth > 480) {
     etsyLogo.style.width = "80px";
   }
+
+  if (window.innerWidth >= 900) {
+    searchBarDiv.remove();
+    navBtn.remove();
+    rightSideLogo.remove();
+    addElement(headerTop, searchBarDiv);
+    addElement(headerTop, rightSideLogo);
+
+    // console.log("hello");
+  } else {
+    addElement(headerBottom, navBtn);
+    addElement(headerBottom, searchBarDiv);
+  }
 }
 
+const breakpoint1 = window.matchMedia("(min-width:900px)");
+if (breakpoint1.matches == true) {
+  resizeListener();
+  console.log(breakpoint1.matches);
+}
+
+const breakpoint2 = window.matchMedia("(min-width:480");
+
+console.log(headerTop);
 window.addEventListener("resize", resizeListener);
 
 function addElement(section, element) {
