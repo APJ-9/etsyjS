@@ -9,3 +9,5 @@ const x = window.matchMedia("(max-width:700px)");
 console.log(x);
 window.addEventListener("resize", mediaFun);
 mediaFun(x);
+
+//mouse enter and mouse leave
